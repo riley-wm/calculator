@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Calculator</title>
+	<script>
+		var equationFunctions = {
+			'add': function(num1,num2) {
+				return num1+num2;
+			},
+			'subtract': function(num1,num2) {
+				return num1-num2;
+			},
+			'multiply': function(num1,num2) {
+				return num1*num2;
+			},
+			'divide': function(num1,num2) {
+				return num1/num2;
+			},
+		}
+		function evaluateEquation() {
+			let operand1 = document.getElementById('operand1').value;
+			let operand2 = document.getElementById('operand2').value;
+			let operator = document.forms["calculator"]["operator"].value;
+			console.log(operand1);
+			console.log(operand2);
+			console.log(operator);
+			return equationFunctions[operator](parseInt(operand1),parseInt(operand2));
+		}
+	</script>
+	<link rel="stylesheet" type="text/css" href="./styles.css">
+</head>
+<body>
+	<div>
+		<form name="calculator" oninput="x.value=evaluateEquation();">
+			<h1>Calculator</h1>
+			<input type="number" id="operand1" name="operand1" value="1" autofocus required><br>
+			<label for="add"><input type="radio" value="add" id="add" name="operator" required default>+</label>
+			<label for="subtract"><input type="radio" value="subtract" id="subtract" name="operator" required>-</label>
+			<label for="multiply"><input type="radio" value="multiply" id="multiply" name="operator" required>*</label>
+			<label for="divide"><input type="radio" value="divide" id="divide" name="operator" required>/</label>
+			<br>
+			<input type="number" id="operand2" name="operand2" value="1" required><br>
+			<hr><p>= </p><output name="x" for="operand1 operator operand2"></output><br>
+		</form>
+	</div>
+</body>
+</html>
